@@ -23,7 +23,7 @@ class founderControllerApi extends Controller
         $founders = Founder::all(['id','name', 'description', 'image']); // Fetch only the required fields
 
         $founders = $founders->map(function ($founder) {
-            $founder->image = $founder->image ? $this->baseUrl . '/storage/' . $founder->image : null;
+            $founder->image = $founder->image ? $this->baseUrl . '/' . $founder->image : null;
             return $founder;
         });
 
@@ -44,7 +44,7 @@ class founderControllerApi extends Controller
             ], 404);
         }
 
-        $founder->image = $founder->image ? $this->baseUrl . '/storage/' . $founder->image : null;
+        $founder->image = $founder->image ? $this->baseUrl . '/' . $founder->image : null;
 
         return response()->json([
             'message' => 'Founder retrieved successfully',
