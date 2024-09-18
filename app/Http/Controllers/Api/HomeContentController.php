@@ -36,7 +36,7 @@ class HomeContentController extends Controller
                 's_description_2'    => $homeContent->s_description_2,
                 's_description_3'    => $homeContent->s_description_3,
                 'description_2'      => $homeContent->description_2,
-                'image'              => $homeContent->image ? $this->baseUrl . '/storage/' . $homeContent->image : null,
+                'image'              => $homeContent->image ? $this->baseUrl . '/' . $homeContent->image : null,
                 'image_2'            => $homeContent->image_2 ? $this->baseUrl . '/storage/' . $homeContent->image_2 : null,
                 'third_sec_heading'  => $homeContent->third_sec_heading,
                 'image_1_sec_3'      => $homeContent->image_1_sec_3 ? $this->baseUrl . '/storage/' . $homeContent->image_1_sec_3 : null,
