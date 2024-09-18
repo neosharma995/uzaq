@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\ContactPageSeo;
+use App\Models\ContactPageSEO;
 use Validator;
 
 class ContactPageSeoController extends Controller
@@ -12,7 +12,7 @@ class ContactPageSeoController extends Controller
     // Get the SEO details for the contact page
     public function index()
     {
-        $contactPage = ContactPageSeo::first();
+        $contactPage = ContactPageSEO::first();
         if ($contactPage) {
             return response()->json([
                 'status' => true,
@@ -39,14 +39,14 @@ class ContactPageSeoController extends Controller
             return response()->json(['status' => false, 'message' => $validator->errors()], 400);
         }
 
-        $contactPage = ContactPageSeo::first();
+        $contactPage = ContactPageSEO::first();
 
         if ($contactPage) {
             // Update existing contact page
             $contactPage->update($request->only(['seo_title', 'seo_description', 'seo_keywords']));
         } else {
             // Create new contact page
-            $contactPage = ContactPageSeo::create($request->only(['seo_title', 'seo_description', 'seo_keywords']));
+            $contactPage = ContactPageSEO::create($request->only(['seo_title', 'seo_description', 'seo_keywords']));
         }
 
         return response()->json([
