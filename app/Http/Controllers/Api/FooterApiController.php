@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Header_footer;
+use App\Models\Footer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
@@ -12,7 +12,7 @@ class FooterApiController extends Controller
 {
     public function index()
     {
-        $footer = Header_footer::all();
+        $footer = Footer::all();
         return response()->json($footer);
     }
     
@@ -44,7 +44,7 @@ class FooterApiController extends Controller
         }
 
         try {
-            $footer = Header_footer::create($request->all());
+            $footer = Footer::create($request->all());
 
             return response()->json([
                 'message' => 'Footer created successfully.',
@@ -57,12 +57,12 @@ class FooterApiController extends Controller
         }
     }
 
-    public function show(Header_footer $footer)
+    public function show(Footer $footer)
     {
         return response()->json($footer);
     }
 
-    public function update(Request $request, Header_footer $footer)
+    public function update(Request $request, Footer $footer)
     {
         $validatedData = Validator::make($request->all(), [
        
@@ -103,7 +103,7 @@ class FooterApiController extends Controller
         }
     }
 
-    public function destroy(Header_footer $footer)
+    public function destroy(Footer $footer)
     {
         try {
             $footer->delete();

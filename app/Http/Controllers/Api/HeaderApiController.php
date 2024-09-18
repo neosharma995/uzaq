@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use App\Models\Header_footer; // Assuming you have a model to store image paths
+use App\Models\Header; // Assuming you have a model to store image paths
 
 class HeaderApiController extends Controller
 {
@@ -25,7 +25,7 @@ class HeaderApiController extends Controller
         // This will output both URLs for testing
        
         // Fetch the image path from the database
-        $homeContent = Header_footer::first(); // Assuming you have only one record for simplicity
+        $homeContent = Header::first(); // Assuming you have only one record for simplicity
         // dd($homeContent->header_logo);
         if ($homeContent && $homeContent->header_logo) {
             $imagePath = $homeContent->header_logo;
@@ -55,7 +55,7 @@ class HeaderApiController extends Controller
             $imagePath = $image->store('headerLogo', 'public');
             $db_img_path = $this->imgUrl . '/' . $imagePath;
             // Save the image path to the database
-            $homeContent = Header_footer::updateOrCreate(
+            $homeContent = Header::updateOrCreate(
                 [], // Update the first record or create if none exists
                 ['header_logo' => $imagePath]
             );
@@ -78,7 +78,7 @@ class HeaderApiController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:20480',
         ]);
 
-        $homeContent = Header_footer::first(); // Fetch the current record
+        $homeContent = Header::first(); // Fetch the current record
 
         if ($homeContent && $homeContent->image_path) {
             $currentImagePath = $homeContent->image_path;
@@ -111,7 +111,7 @@ class HeaderApiController extends Controller
 
     public function destroy()
     {
-        $homeContent = Header_footer::first(); // Fetch the current record
+        $homeContent = Header::first(); // Fetch the current record
 
         if ($homeContent && $homeContent->image_path) {
             $currentImagePath = $homeContent->image_path;
