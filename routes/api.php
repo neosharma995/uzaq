@@ -34,6 +34,7 @@ Route::apiResource("profile", ProfileController::class);
 Route::group(["middleware"=> "auth:sanctum"], function(){
     Route::get("dashboard", [LoginController::class, 'showDashboard']);
     Route::get("logout", [LoginController::class, 'logout']);
+    Route::post("change-password", [LoginController::class, 'changePassword']);
 });
 
 Route::apiResource('homedata', HomeContentController::class);
@@ -51,10 +52,6 @@ Route::apiResource('contactPageSeo', ContactPageSeoController::class);
 
 // Route::apiResource('founders', founderControllerApi::class);
 Route::apiResource('submit-enquiry', FormEnquiryController::class);
-
-
-
-// route::put('homedata', [HomeContentController::class, 'update']);
 
 Route::apiResource('products', ProductsController::class);
 Route::apiResource('categories', CategoryController::class);

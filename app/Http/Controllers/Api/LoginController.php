@@ -85,7 +85,42 @@ class LoginController extends Controller
         ], 200);
     }
 
-
+    public function changePassword(Request $request)
+    {
+        try {
+            // Validate the request
+            $validator = Validator::make($request->all(), [
+                'password' => 'required|min:6|confirmed', // Make sure to include confirmation for the new password
+            ]);
+    
+            if ($validator->fails()) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Validation error',
+                    'errors' => $validator->errors(),
+                ], 401);
+            }
+    
+            // Get the authenticated user
+            $user = auth()->user();
+    
+            // Update the user's password
+            $user->password = Hash::make($request->password);
+            $user->save();
+    
+            return response()->json([
+                'status' => true,
+                'message' => 'Password changed successfully.',
+            ], 200);
+    
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => $th->getMessage(),
+            ], 500);
+        }
+    }
+    
 
 
 
