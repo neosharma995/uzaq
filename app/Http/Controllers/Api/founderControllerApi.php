@@ -14,7 +14,7 @@ class founderControllerApi extends Controller
 
     public function __construct()
     {
-        $this->baseUrl = config('app.api_url');
+        $this->baseUrl = config('app.img_url');
     }
 
     // List all founders

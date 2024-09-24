@@ -24,7 +24,7 @@ return [
     | set this to the base URL of your image storage in the .env file.
     |
     */
-    'img_url' => env('IMG_URL', 'https://centaurmotorcycles.site'),
+    'img_url' => env('IMG_URL', 'https://centaurmotorcycles.site/images'),
 
     /*
     |--------------------------------------------------------------------------
