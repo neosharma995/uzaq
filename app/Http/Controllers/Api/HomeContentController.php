@@ -15,7 +15,7 @@ class HomeContentController extends Controller
 
     public function __construct()
     {
-        $this->baseUrl = config('app.api_url');
+        $this->imgUrl = config('app.api_url');
         $this->imgUrl = config('app.img_url');
     }
 
@@ -36,18 +36,18 @@ class HomeContentController extends Controller
                 's_description_2'    => $homeContent->s_description_2,
                 's_description_3'    => $homeContent->s_description_3,
                 'description_2'      => $homeContent->description_2,
-                'image'              => $homeContent->image ? $this->baseUrl . '/' . $homeContent->image : null,
-                'image_2'            => $homeContent->image_2 ? $this->baseUrl . '/' . $homeContent->image_2 : null,
+                'image'              => $homeContent->image ? $this->imgUrl . '/' . $homeContent->image : null,
+                'image_2'            => $homeContent->image_2 ? $this->imgUrl . '/' . $homeContent->image_2 : null,
                 'third_sec_heading'  => $homeContent->third_sec_heading,
-                'image_1_sec_3'      => $homeContent->image_1_sec_3 ? $this->baseUrl . '/' . $homeContent->image_1_sec_3 : null,
+                'image_1_sec_3'      => $homeContent->image_1_sec_3 ? $this->imgUrl . '/' . $homeContent->image_1_sec_3 : null,
                 'disc_1_sec_3'       => $homeContent->disc_1_sec_3,
-                'image_2_sec_3'      => $homeContent->image_2_sec_3 ? $this->baseUrl . '/' . $homeContent->image_2_sec_3 : null,
+                'image_2_sec_3'      => $homeContent->image_2_sec_3 ? $this->imgUrl . '/' . $homeContent->image_2_sec_3 : null,
                 'disc_2_sec_3'       => $homeContent->disc_2_sec_3,
-                'image_3_sec_3'      => $homeContent->image_3_sec_3 ? $this->baseUrl . '/' . $homeContent->image_3_sec_3 : null,
+                'image_3_sec_3'      => $homeContent->image_3_sec_3 ? $this->imgUrl . '/' . $homeContent->image_3_sec_3 : null,
                 'disc_3_sec_3'       => $homeContent->disc_3_sec_3,
-                'image_4_sec_3'      => $homeContent->image_4_sec_3 ? $this->baseUrl . '/' . $homeContent->image_4_sec_3 : null,
+                'image_4_sec_3'      => $homeContent->image_4_sec_3 ? $this->imgUrl . '/' . $homeContent->image_4_sec_3 : null,
                 'disc_4_sec_3'       => $homeContent->disc_4_sec_3,
-                'image_5_sec_3'      => $homeContent->image_5_sec_3 ? $this->baseUrl . '/' . $homeContent->image_5_sec_3 : null,
+                'image_5_sec_3'      => $homeContent->image_5_sec_3 ? $this->imgUrl . '/' . $homeContent->image_5_sec_3 : null,
                 'disc_5_sec_3'       => $homeContent->disc_5_sec_3,
 
                 // SEO Fields
