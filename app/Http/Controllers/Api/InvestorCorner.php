@@ -77,7 +77,7 @@ class InvestorCorner extends Controller
             'message' => 'Investor created successfully',
             'data' => [
                 'id' => $investor->id,
-                'image' => $imagePath ? $this->baseUrl . '/storage/' . $imagePath : null,
+                'image' => $imagePath ? $this->imgUrl . '/' . $imagePath : null,
                 'fields' => $data,
             ],
         ], 201);
@@ -135,7 +135,7 @@ class InvestorCorner extends Controller
             'message' => 'Investor updated successfully',
             'data' => [
                 'id' => $investor->id,
-                'image' => $investor->image ? $this->baseUrl . '/storage/' . $investor->image : null,
+                'image' => $investor->image ? $this->imgUrl . '/' . $investor->image : null,
                 'fields' => $data,
             ],
         ], 200);
