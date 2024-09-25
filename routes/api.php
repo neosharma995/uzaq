@@ -20,6 +20,7 @@ use App\Http\Controllers\Api\founderControllerApi;
 use App\Http\Controllers\Api\FormEnquiryController;
 use App\Http\Controllers\Api\ProductPageApis;
 use App\Http\Controllers\Api\ContactPageSeoController;
+use App\Http\Controllers\Api\HomeGalleryController;
 
 
 
@@ -49,6 +50,7 @@ Route::apiResource('about_us', AboutUsController::class);
 Route::apiResource('founders', founderControllerApi::class);
 Route::apiResource('productPage', ProductPageApis::class);
 Route::apiResource('contactPageSeo', ContactPageSeoController::class);
+Route::apiResource('homeGallery', HomeGalleryController::class);
 
 // Route::apiResource('founders', founderControllerApi::class);
 Route::apiResource('submit-enquiry', FormEnquiryController::class);
