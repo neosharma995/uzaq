@@ -64,7 +64,7 @@ class LoginController extends Controller
         return response()->json([
             'status'    => true,
             'message'   => 'Dashboard',
-            'token'     => $adminDashboard,
+            'data'     => $adminDashboard,
             'id'      => auth()->user()->id
         ], 200);
     }

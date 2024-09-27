@@ -45,7 +45,7 @@ class FormEnquiryController extends Controller
         $formData = Enquiry::create($request->all());
 
         // Send email to admin
-        Mail::to('panku102001@gmail.com')->send(new EnquiryReceived($formData));
+        Mail::to('info.uzaq@gmail.com')->send(new EnquiryReceived($formData));
 
         // Send email to user
         Mail::to($request->email)->send(new UserConfirmation($formData));
