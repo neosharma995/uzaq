@@ -43,10 +43,12 @@ class LoginController extends Controller
             }
 
             $user = User::where('email', $request->email)->first();
+            $token = $user->createToken("API TOKEN", ['*'], now()->addHours(24))->plainTextToken;
+
             return response()->json([
                 'status'    => true,
                 'message'   => 'Admin loggd in',
-                'token'     => $user->createToken("API TOKEN")->plainTextToken
+                'token'     => $token
             ], 200);
             
         }catch(\Throwable $th){

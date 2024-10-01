@@ -21,6 +21,8 @@ use App\Http\Controllers\Api\FormEnquiryController;
 use App\Http\Controllers\Api\ProductPageApis;
 use App\Http\Controllers\Api\ContactPageSeoController;
 use App\Http\Controllers\Api\HomeGalleryController;
+use App\Http\Controllers\Api\greenEnergyApi;
+use App\Http\Controllers\Api\GreenEnergyGalleryController;
 
 
 
@@ -51,6 +53,8 @@ Route::apiResource('founders', founderControllerApi::class);
 Route::apiResource('productPage', ProductPageApis::class);
 Route::apiResource('contactPageSeo', ContactPageSeoController::class);
 Route::apiResource('homeGallery', HomeGalleryController::class);
+Route::apiResource('green-energy', greenEnergyApi::class);
+Route::apiResource('green-energy-gallery', GreenEnergyGalleryController::class);
 
 // Route::apiResource('founders', founderControllerApi::class);
 Route::apiResource('submit-enquiry', FormEnquiryController::class);

@@ -13,7 +13,7 @@ return [
     | this to the base URL of your API services in the .env file.
     |
     */
-    'api_url' => env('API_URL', 'https://centaurmotorcycles.site'),
+    'api_url' => env('API_URL', 'http://localhost:8000/'),
 
        /*
     |--------------------------------------------------------------------------
@@ -24,7 +24,8 @@ return [
     | set this to the base URL of your image storage in the .env file.
     |
     */
-    'img_url' => env('IMG_URL', 'https://centaurmotorcycles.site/images'),
+    // 'img_url' => env('IMG_URL', 'https://centaurmotorcycles.site/images'),
+    'img_url' => env('IMG_URL', 'http://localhost:8000/images'),
 
     /*
     |--------------------------------------------------------------------------
