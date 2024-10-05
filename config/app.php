@@ -13,7 +13,7 @@ return [
     | this to the base URL of your API services in the .env file.
     |
     */
-    'api_url' => env('API_URL', 'http://localhost:8000'),
+    'api_url' => env('API_URL', 'https://centaurmotorcycles.site'),
 
        /*
     |--------------------------------------------------------------------------
@@ -25,7 +25,7 @@ return [
     |
     */
     // 'img_url' => env('IMG_URL', 'https://centaurmotorcycles.site/images'),
-    'img_url' => env('IMG_URL', 'http://localhost:8000/images'),
+    'img_url' => env('IMG_URL', 'https://centaurmotorcycles.site/images'),
 
     /*
     |--------------------------------------------------------------------------
