@@ -13,7 +13,7 @@ return [
     | this to the base URL of your API services in the .env file.
     |
     */
-    'api_url' => env('API_URL', 'http://localhost:8000/'),
+    'api_url' => env('API_URL', 'http://localhost:8000'),
 
        /*
     |--------------------------------------------------------------------------

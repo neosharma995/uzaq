@@ -11,15 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('green_energies', function (Blueprint $table) {
+        Schema::create('new_gallery', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('image')->nullable(); // for storing image paths
-            $table->text('short_description');
-            $table->text('long_description');
+            $table->string('imgHeading');
+            $table->string('image'); // Store the path to the image
             $table->timestamps();
         });
-
     }
 
     /**
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('green_energies');
+        Schema::dropIfExists('new_gallery');
     }
 };

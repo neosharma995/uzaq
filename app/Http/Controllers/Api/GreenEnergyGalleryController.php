@@ -6,11 +6,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\GreenEnergyGallery;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class GreenEnergyGalleryController extends Controller
 {
-    protected $baseUrl;    
-    protected $imgUrl;    
+    protected $baseUrl;
+    protected $imgUrl;
 
     public function __construct()
     {
@@ -34,19 +35,26 @@ class GreenEnergyGalleryController extends Controller
         // Return the response with a message and the data
         return response()->json([
             'message' => 'Green Energy Gallery records retrieved successfully',
-            'data'    => $galleries
+            'data' => $galleries
         ], 200);
     }
 
 
     // Store a new gallery item
+
+
     public function store(Request $request)
     {
-        // Validate the request
-        $request->validate([
+        // Custom validation using Validator
+        $validator = Validator::make($request->all(), [
             'heading' => 'required|string|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:204800',
         ]);
+
+        // Check if the validation fails
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422); // Return validation errors
+        }
 
         // Handle file upload
         if ($request->hasFile('image')) {
@@ -61,6 +69,7 @@ class GreenEnergyGalleryController extends Controller
 
         return response()->json(['message' => 'Green Energy Gallery added successfully!', 'data' => $gallery], 201);
     }
+
 
     // Show a single gallery item by ID
     public function show($id)
@@ -77,11 +86,16 @@ class GreenEnergyGalleryController extends Controller
     // Update an existing gallery item by ID
     public function update(Request $request, $id)
     {
-        // Validate the request
-        $request->validate([
+        // Custom validation using Validator
+        $validator = Validator::make($request->all(), [
             'heading' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+
+        // Check if the validation fails
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422); // Return validation errors
+        }
 
         // Find the gallery item by ID
         $gallery = GreenEnergyGallery::find($id);
@@ -108,6 +122,7 @@ class GreenEnergyGalleryController extends Controller
 
         return response()->json(['message' => 'Green Energy Gallery updated successfully!', 'data' => $gallery], 200);
     }
+
 
     // Delete a gallery item by ID
     public function destroy($id)

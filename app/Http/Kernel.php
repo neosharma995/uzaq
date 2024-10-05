@@ -15,7 +15,23 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         // Other global middleware
-        \App\Http\Middleware\Cors::class,
+        \Fruitcake\Cors\HandleCors::class,  // Use Fruitcake CORS middleware
+    ];
+
+    /**
+     * The application's route middleware groups.
+     *
+     * @var array
+     */
+    protected $middlewareGroups = [
+        'web' => [
+            // Other middleware
+        ],
+
+        'api' => [
+            // Other middleware
+            \Fruitcake\Cors\HandleCors::class,  // Ensure it's also applied to API routes
+        ],
     ];
 
     /**
@@ -27,6 +43,5 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         // Other route middleware
-        'cors' => \App\Http\Middleware\Cors::class,
     ];
 }

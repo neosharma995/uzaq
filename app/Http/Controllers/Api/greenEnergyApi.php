@@ -50,7 +50,7 @@ class greenEnergyApi extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:204800',
-            'short_description' => 'required|string|max:500',
+            'short_description' => 'required|string',
             'long_description' => 'required|string',
         ]);
 
@@ -98,7 +98,7 @@ class greenEnergyApi extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'nullable|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:204800',
-            'short_description' => 'nullable|string|max:500',
+            'short_description' => 'nullable|string',
             'long_description' => 'nullable|string',
         ]);
 

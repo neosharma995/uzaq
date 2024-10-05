@@ -23,6 +23,7 @@ use App\Http\Controllers\Api\ContactPageSeoController;
 use App\Http\Controllers\Api\HomeGalleryController;
 use App\Http\Controllers\Api\greenEnergyApi;
 use App\Http\Controllers\Api\GreenEnergyGalleryController;
+use App\Http\Controllers\Api\GlryNewG;
 
 
 
@@ -41,6 +42,7 @@ Route::group(["middleware"=> "auth:sanctum"], function(){
 });
 
 Route::apiResource('homedata', HomeContentController::class);
+Route::apiResource('glry', GlryNewG::class);
 Route::apiResource('headerlogo', HeaderApiController::class);
 Route::apiResource('investorPage', InvestorCorner::class);
 Route::apiResource('ContactPage', ContactPageApi::class);
