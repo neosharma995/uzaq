@@ -133,42 +133,41 @@ class LoginController extends Controller
 
 
 
- // Register Controller
-    // public function registerAdmin(Request $request){
+    public function registerAdmin(Request $request){
       
       
-    //     try{
+        try{
         
-    //       $validateAdmin = Validator::make($request->all(),
-    //           [
-    //               'name'      => 'required',
-    //               'email'     => 'required',
-    //               'password'  => 'required'
-    //           ]);
-    //           if($validateAdmin->fails()){
-    //               return response()->json([
-    //                   'status'    => false,
-    //                   'message'   => 'Validation error',
-    //                   'errors'    => $validateAdmin->errors()
-    //               ], 401);
-    //           }
-    //           $user = User::create([
-    //               'name'      => $request->name,
-    //               'email'     => $request->email,
-    //               'password'  => $request->password,
-    //           ]);
-    //           return response()->json([
-    //               'status'    => true,
-    //               'message'   => 'Admin created',
-    //               'token'     => $user->createToken("API TOKEN")->plainTextToken
-    //           ], 200);
-    //       }catch(\Throwable $th){
-    //           return response()->json([
-    //               'status'    => false,
-    //               'message'   => $th->getMessage(),
-    //           ], 500);
-    //       }
-    //   }
+          $validateAdmin = Validator::make($request->all(),
+              [
+                  'name'      => 'required',
+                  'email'     => 'required',
+                  'password'  => 'required'
+              ]);
+              if($validateAdmin->fails()){
+                  return response()->json([
+                      'status'    => false,
+                      'message'   => 'Validation error',
+                      'errors'    => $validateAdmin->errors()
+                  ], 401);
+              }
+              $user = User::create([
+                  'name'      => $request->name,
+                  'email'     => $request->email,
+                  'password'  => $request->password,
+              ]);
+              return response()->json([
+                  'status'    => true,
+                  'message'   => 'Admin created',
+                  'token'     => $user->createToken("API TOKEN")->plainTextToken
+              ], 200);
+          }catch(\Throwable $th){
+              return response()->json([
+                  'status'    => false,
+                  'message'   => $th->getMessage(),
+              ], 500);
+          }
+      }
 
 
 
