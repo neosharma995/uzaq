@@ -43,7 +43,7 @@ class HeroSectionController extends Controller
     {
         $validatedData = Validator::make($request->all(), [
             'text' => 'required|string|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // image validation
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:20480', // image validation
         ]);
 
         if ($validatedData->fails()) {
@@ -88,7 +88,7 @@ class HeroSectionController extends Controller
     {
         $validatedData = Validator::make($request->all(), [
             'text' => 'nullable|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:20480',
         ]);
 
         if ($validatedData->fails()) {
