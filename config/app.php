@@ -25,7 +25,8 @@ return [
     |
     */
     // 'img_url' => env('IMG_URL', 'https://centaurmotorcycles.site/images'),
-    'img_url' => env('IMG_URL', 'https://centaurmotorcycles.site/images'),
+    'img_url' => env('IMG_URL', 'https://uzaq.sparkwebsolutionstesting.site/images'),
+    // 'img_url' => env('IMG_URL', 'http://localhost:8000/images'),
 
     /*
     |--------------------------------------------------------------------------
